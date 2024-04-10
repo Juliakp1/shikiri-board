@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface BoardController {
 
     @PostMapping("/boards/create")
-    ResponseEntity<BoardOut> createBoard (
+    ResponseEntity<BoardOut> create (
         @RequestHeader(required = true, name = "Authorization") String key,
         @RequestBody(required = true) BoardIn in
     );
@@ -32,7 +32,7 @@ public interface BoardController {
     @DeleteMapping("/boards/{id}")
     ResponseEntity<BoardOut> delete (
         @RequestHeader(required = true, name = "Authorization") String key,
-        @RequestBody(required = true) BoardIn in
+        @RequestBody(required = true) String id
     );
 
     @GetMapping("/boards/{id}")
