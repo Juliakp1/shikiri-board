@@ -48,8 +48,8 @@ public interface BoardController {
         @RequestParam(defaultValue = "name") String sortBy
     );
 
-    @GetMapping("/boards/all/sorted-by-date")
-    ResponseEntity<List<BoardOut>> findAllBoardsOrderedByCreationDateDesc (
+    @GetMapping("/boards")
+    ResponseEntity<List<BoardOut>> findOrderByName (
         @RequestHeader(required = true, name = "Authorization") String key
     );
 }
