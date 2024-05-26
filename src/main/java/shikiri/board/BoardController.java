@@ -34,7 +34,7 @@ public interface BoardController {
         @RequestBody(required = true) String id
     );
 
-    @GetMapping("/boards")
+    @GetMapping("/boards/search/by-id")
     ResponseEntity<BoardOut> getBoardById (
         @RequestHeader(required = true, name = "Authorization") String key,
         @RequestBody(required = true) String id

@@ -7,8 +7,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true, chain = true)
 public record BoardIn (
     String name,
-    String description,
-    String userId
+    String description
 ) {
     
 }
