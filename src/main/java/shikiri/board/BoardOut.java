@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 public record BoardOut (
     String id,
     String name,
+    String description,
     String userId
 ) {
     

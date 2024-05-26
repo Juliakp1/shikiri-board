@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,28 +16,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "shikiri-board")
 public interface BoardController {
 
-    @PostMapping("/boards/create")
+    @PostMapping("/boards")
     ResponseEntity<BoardOut> create (
         @RequestHeader(required = true, name = "Authorization") String key,
         @RequestBody(required = true) BoardIn in
     );
 
-    @PutMapping("/boards/{id}")
+    @PutMapping("/boards")
     ResponseEntity<BoardOut> update (
         @RequestHeader(required = true, name = "Authorization") String key,
         @RequestBody(required = true) BoardIn in
     );
 
-    @DeleteMapping("/boards/{id}")
+    @DeleteMapping("/boards")
     ResponseEntity<BoardOut> delete (
         @RequestHeader(required = true, name = "Authorization") String key,
         @RequestBody(required = true) String id
     );
 
-    @GetMapping("/boards/{id}")
+    @GetMapping("/boards")
     ResponseEntity<BoardOut> getBoardById (
         @RequestHeader(required = true, name = "Authorization") String key,
-        @PathVariable(required = true) String id
+        @RequestBody(required = true) String id
     );
 
     @GetMapping("/boards/search/by-name")
