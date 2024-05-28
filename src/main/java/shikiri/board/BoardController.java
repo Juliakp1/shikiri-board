@@ -18,37 +18,37 @@ public interface BoardController {
 
     @PostMapping("/boards")
     ResponseEntity<BoardOut> create (
-        @RequestHeader(required = true, name = "Authorization") String key,
+        @RequestHeader(required = true, name = "id-user") String userId,
         @RequestBody(required = true) BoardIn in
     );
 
     @PutMapping("/boards")
     ResponseEntity<BoardOut> update (
-        @RequestHeader(required = true, name = "Authorization") String key,
+        @RequestHeader(required = true, name = "id-user") String userId,
         @RequestBody(required = true) BoardIn in
     );
 
     @DeleteMapping("/boards")
     ResponseEntity<BoardOut> delete (
-        @RequestHeader(required = true, name = "Authorization") String key,
+        @RequestHeader(required = true, name = "id-user") String userId,
         @RequestBody(required = true) String id
     );
 
     @GetMapping("/boards/search/by-id")
     ResponseEntity<BoardOut> getBoardById (
-        @RequestHeader(required = true, name = "Authorization") String key,
+        @RequestHeader(required = true, name = "id-user") String userId,
         @RequestBody(required = true) String id
     );
 
     @GetMapping("/boards/search/by-name")
     ResponseEntity<List<BoardOut>> findBoardsByNameContaining (
-        @RequestHeader(required = true, name = "Authorization") String key,
+        @RequestHeader(required = true, name = "id-user") String userId,
         @RequestParam(required = true) String name,
         @RequestParam(defaultValue = "name") String sortBy
     );
 
     @GetMapping("/boards")
     ResponseEntity<List<BoardOut>> findOrderByName (
-        @RequestHeader(required = true, name = "Authorization") String key
+        @RequestHeader(required = true, name = "id-user") String userId
     );
 }
